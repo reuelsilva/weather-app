@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    <link rel="stylesheet" href="src/styles.css">
+</head>
+<body>
+    <div class="box-container">
+        <div class="box-header">
+            <input type="text" name="query" id="query" placeholder="Digite o nome da cidade">
+            <button id="fetch-btn" class="fa-solid fa-magnifying-glass"></button>
+        </div>
+
+        <div class="box-content">
+          <div class="box-temp">
+            <img src="https://openweathermap.org/img/wn/04d@2x.png" alt="Icone do clima">
+            <div>
+                <p class="temp-value"></p>
+                <p class="description"></p>
+            </div>
+          </div>
+
+          <p class="city-name"></p>
+
+          <div class="extra-infos">
+            <div class="info">
+                <i class="fa-regular fa-sun"></i>
+                <div>
+                    <p class="temp-max"></p>
+                    <h2>Max.</h2>
+                </div>
+            </div> 
+
+            <div class="info">
+                <i class="fa-regular fa-moon"></i>
+                <div>
+                    <p class="temp-min"></p>
+                    <h2>Min.</h2>
+                </div>
+            </div>
+
+            <div class="info">
+                <i class="fa-solid fa-droplet"></i>
+                <div>
+                    <p class="humidity"></p>
+                    <h2>Umidade</h2>
+                </div>
+            </div>
+
+            <div class="info">
+                <i class="fa-solid fa-wind"></i>
+                <div>
+                    <p class="wind"></p>
+                    <h2>Vel. do vento</h2>
+                </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="not-found-message">
+            <p>cidade não encontrada.</p>
+        </div>
+    </div>
+    <script src="src/script.js"></script>
+</body>
+</html>
