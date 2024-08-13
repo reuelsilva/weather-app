@@ -35,6 +35,7 @@ const getUserLocationData = async (coords) => {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=metric&lang=pt_br&appid=${API_KEY}`);
     const data = await response.json();
     if(data){
+        document.querySelector(".not-found-message").style.display = "none";
         document.querySelector(".required-location-message").style.display = "none";
         document.querySelector(".box-content").style.display = "block";
         loadingData({
