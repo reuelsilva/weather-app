@@ -16,8 +16,12 @@
 <body>
     <div class="box-container">
         <div class="box-header">
-            <input type="text" name="query" id="query" placeholder="Digite o nome da cidade">
-            <button id="fetch-btn" class="fa-solid fa-magnifying-glass"></button>
+            <div>
+                <input type="text" name="query" id="query" placeholder="Digite o nome da cidade">
+                <button id="fetch-btn" class="fa-solid fa-magnifying-glass"></button>
+            </div>
+            <p>ou</p>
+            <button id="get-current-location">Use a localização atual <i class="fa-solid fa-location-dot"></i></button>
         </div>
 
         <div class="box-content">
@@ -69,6 +73,10 @@
 
         <div class="not-found-message">
             <p>cidade não encontrada.</p>
+        </div>
+
+        <div class="required-location-message">
+            <p>É necessário a permissão do usuário para acessar a localização.</p>
         </div>
     </div>
     <script src="src/script.js"></script>

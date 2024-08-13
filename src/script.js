@@ -9,6 +9,7 @@ const fetchingData = async () => {
 
         if (data.cod == 200) {
             document.querySelector(".not-found-message").style.display = "none";
+            document.querySelector(".required-location-message").style.display = "none";
             document.querySelector(".box-content").style.display = "block";
             loadingData({
                 city: data.name,
@@ -22,10 +23,30 @@ const fetchingData = async () => {
             })
         } else {
             document.querySelector(".box-content").style.display = "none";
+            document.querySelector(".required-location-message").style.display = "none";
             document.querySelector(".not-found-message").style.display = "block";
         }
     } catch (error) {
         document.querySelector(".not-found-message").style.display = "block";
+    }
+}
+
+const getUserLocationData = async (coords) => {
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.lat}&lon=${coords.lon}&appid==${API_KEY}`);
+    const data = await response.json();
+    if(data){
+        document.querySelector(".required-location-message").style.display = "none";
+        document.querySelector(".box-content").style.display = "block";
+        loadingData({
+            city: data.name,
+            icon: data.weather[0].icon,
+            temp: data.main.temp,
+            description: data.weather[0].description,
+            tempMax: data.main.temp_max,
+            tempMin: data.main.temp_min,
+            humidity: data.main.humidity,
+            wind: data.wind.speed
+        })
     }
 }
 
@@ -48,4 +69,15 @@ inputElement.addEventListener("keydown", function(event){
     if(event.key == "Enter"){
         fetchingData();
     }
+})
+
+const getLocationButton = document.getElementById("get-current-location");
+getLocationButton.addEventListener("click", () => {
+    navigator.geolocation.getCurrentPosition((GeolocationPosition) => {
+        getUserLocationData(GeolocationPosition.coords);
+    }, (GeolocationPositionError) => {
+        document.querySelector(".box-content").style.display = "none";
+        document.querySelector(".not-found-message").style.display = "none"
+        document.querySelector(".required-location-message").style.display = "block"
+    })
 })

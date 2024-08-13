@@ -35,12 +35,17 @@ body{
 
 .box-container .box-header{
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 2rem;
+    flex-direction: column;
+    margin-bottom: 1rem;
 }
 
-.box-container .box-header input{
+.box-container .box-header div{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.box-container .box-header div input{
     flex: 1;
     width: 100%;
     max-width: 300px;
@@ -53,7 +58,7 @@ body{
     outline: none;
 }
 
-.box-container .box-header button{
+.box-container .box-header div button{
     flex-shrink: 0;
     cursor: pointer;
     height: 52px;
@@ -63,6 +68,29 @@ body{
     background-color: var(--color-03);
     border-radius: 50%;
     border: none;
+}
+
+.box-container .box-header p{
+    text-align: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin: 0.5rem 0;
+}
+
+.box-container .box-header button#get-current-location{
+    cursor: pointer;
+    background-color: var(--color-01);
+    font-size: 1rem;
+    color: #ffffff;
+    padding: 1rem;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: none;
+}
+
+.box-container .box-header button i{
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
 }
 
 .box-container .box-content{
@@ -138,4 +166,15 @@ body{
 .not-found-message p{
     color: var(--color-04);
     text-align: center;
+}
+
+.required-location-message{
+    display: none;
+}
+
+.required-location-message p{
+    color: var(--color-04);
+    text-align: center;
+    max-width: 290px;
+    margin: 0 auto;
 }
