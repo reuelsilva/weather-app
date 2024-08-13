@@ -32,7 +32,7 @@ const fetchingData = async () => {
 }
 
 const getUserLocationData = async (coords) => {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&appid=${API_KEY}`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${coords.latitude}&lon=${coords.longitude}&units=metric&lang=pt_br&appid=${API_KEY}`);
     const data = await response.json();
     if(data){
         document.querySelector(".required-location-message").style.display = "none";
